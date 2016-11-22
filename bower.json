@@ -1,0 +1,32 @@
+{
+  "name": "frontend-practice",
+  "version": "1.0.0",
+  "homepage": "https://github.com/YunzhiWei/frontend-practice",
+  "authors": [
+    "Chris Wei <yunzhi.wei@live.com>"
+  ],
+  "description": "to practice how to program front-end SPA with some useful tools",
+  "main": "index.html",
+  "keywords": [
+    "front-end",
+    "bower",
+    "bootstrap",
+    "jquery",
+    "angularjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "font-awsome#^4.7.0",
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.2",
+    "angular-resource": "^1.5.8"
+  }
+}
