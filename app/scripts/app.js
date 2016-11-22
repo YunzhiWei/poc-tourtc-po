@@ -11,15 +11,26 @@ angular.module('week3App', ['ui.router', 'ngResource'])
         .state('app', {
             url:'/',
             views: {
-                'header': { templateUrl : 'views/header.html' },
+                'header': { templateUrl : 'views/newheader.html' },
                 'content': {
-                    templateUrl : 'views/home.html',
-                    controller  : 'IndexController'
+                    //templateUrl : 'views/home.html',
+                    //controller  : 'IndexController'
+                    template: '<h1>hello world</h1>'
                 },
-                'footer': { templateUrl : 'views/footer.html' }
+                'footer': { templateUrl : 'views/newheader.html' }
             }
         })
-                // route for the aboutus page
+        // route for the authority
+        .state('app.authority', {
+            url:'authorities',
+            views: {
+                'content@': {
+                  templateUrl : 'views/authority.html',
+                  controller  : 'AuthorityController'
+                }
+            }
+        })
+        // route for the aboutus page
         .state('app.aboutus', {
             url:'aboutus',
             views: {
@@ -29,7 +40,7 @@ angular.module('week3App', ['ui.router', 'ngResource'])
                 }
             }
         })
-                // route for the contactus page
+        // route for the contactus page
         .state('app.contactus', {
             url:'contactus',
             views: {
@@ -39,7 +50,6 @@ angular.module('week3App', ['ui.router', 'ngResource'])
                  }
             }
         })
-
         // route for the menu page
         .state('app.menu', {
             url: 'menu',
@@ -50,7 +60,6 @@ angular.module('week3App', ['ui.router', 'ngResource'])
                 }
             }
         })
-
         // route for the dishdetail page
         .state('app.dishdetails', {
             url: 'menu/:id',

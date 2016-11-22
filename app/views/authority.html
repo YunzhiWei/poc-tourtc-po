@@ -1,0 +1,34 @@
+<div class="col-xs-12 col-xs-push-2">
+  <h1>角色定义</h1>
+  <ul>
+    <li ng-repeat="role in userroles">
+      <button>编辑</button>
+      <button>删除</button>
+      &nbsp;&nbsp;<strong>#</strong>{{role.id}}
+      &nbsp;&nbsp;<strong>BC:&nbsp;</strong>{{role.businessCategory}}
+      &nbsp;&nbsp;<strong>DT:&nbsp;</strong>{{role.dataType}}
+      &nbsp;&nbsp;<strong>Name:&nbsp;</strong>{{role.name}}
+      &nbsp;&nbsp;{{role.description}}
+    </li>
+  </ul>
+  <h2>当前角色：{{rolename}}</h2>
+  <div ng-repeat="group in authorities">
+    <div class="h3">
+      {{group.name}}
+      <button ng-click="onClickAddAuthority(group.id)">增加权限类型</button>
+    </div>
+    <p>{{group.description}}</p>
+
+    <ul>
+      <li ng-repeat="authority in group.authorities">
+        <p>
+          <input id={{authority.name}} type="checkbox" ng-checked="isSelected(authority.name)" ng-click="updateSelection($event, authority.name)">
+          &nbsp;&nbsp;<strong>#</strong>{{authority.id}}
+          &nbsp;&nbsp;<strong>Code:</strong>&nbsp;{{authority.code}}
+          &nbsp;&nbsp;<strong>Name:</strong>&nbsp;{{authority.name}}
+        </p>
+        <p>{{authority.description}}</p>
+      </li>
+    </ul>
+  </div>
+</div>
