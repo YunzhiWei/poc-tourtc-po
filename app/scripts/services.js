@@ -19,11 +19,11 @@ angular.module('week3App')
 
   this.getPromotions = function () {
     return $resource(baseURL+"promotions/:id", null, {'update':{method:'PUT'}});
-  }
+  };
 
   this.feedbacks = function () {
     return $resource(baseURL+"feedback/:id", null, {'update':{method:'PUT'}});
-  }
+  };
 
 }])
 
