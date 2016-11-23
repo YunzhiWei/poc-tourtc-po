@@ -28,7 +28,13 @@
       &nbsp;&nbsp;<strong>#</strong>{{item.purchase_orderId}}
       &nbsp;&nbsp;<strong>线路:&nbsp;</strong>{{item.productline}}
       &nbsp;&nbsp;<strong>价种:&nbsp;</strong>{{item.price_catalog}}
+      &nbsp;&nbsp;<strong>价格:&nbsp;</strong>{{item.price | currency}}
       &nbsp;&nbsp;<strong>份数:&nbsp;</strong>{{item.copies}}
+      &nbsp;&nbsp;<strong>小计:&nbsp;</strong>{{item.price * item.copies | currency}}
     </li>
   </ul>
+  &nbsp;&nbsp;<strong>合计:&nbsp;</strong>{{poItemsTotalCost() | currency}}
+
+  <p style="padding:10px;"></p>
+
 </div>

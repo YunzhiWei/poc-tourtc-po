@@ -72,9 +72,17 @@ angular.module('week3App')
     $scope.purchaseorder = purchaseOrderService.restPurchaseOrders().get({id:parseInt($stateParams.id,10)});
     $scope.poItems = purchaseOrderService.restPOItems().query({purchase_orderId:parseInt($stateParams.id,10)});
 
-    console.log("po: ", $scope.purchaseorder);
-    console.log("items: ", $scope.poItems);
-
+    $scope.poItemsTotalCost = function () {
+      return $scope.poItems
+      .map(function(item) {
+        console.log("item cost: ", item.price, " x ", item.copies, " = ", item.price * item.copies);
+        return item.price * item.copies;
+      })
+      .reduce(function(accu, value) {
+        console.log("accu: ", accu, "value: ", value);
+        return accu + value;
+      }, 0);
+    }
   }])
 
 ;
