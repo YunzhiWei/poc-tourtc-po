@@ -40,6 +40,16 @@ angular.module('week3App', ['ui.router', 'ngResource'])
                 }
             }
         })
+        // route for the authority
+        .state('app.paymentplan', {
+            url:'paymentplans',
+            views: {
+                'content@': {
+                  templateUrl : 'views/paymentplan.html',
+                  controller  : 'PaymentPlanController'
+                }
+            }
+        })
         // route for the dishdetail page
         .state('app.podetails', {
             url: 'podetails/:id',
