@@ -24,6 +24,10 @@ angular.module('week3App')
     return $resource(baseURL+"purchase_orders/:id", null, {'update':{method:'PUT'}});
   };
 
+  this.restPOItems = function() {
+    return $resource(baseURL+"po_items/:id", null, {'update':{method:'PUT'}});
+  };
+
 }])
 
 ;

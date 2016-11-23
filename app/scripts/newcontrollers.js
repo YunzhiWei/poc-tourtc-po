@@ -67,4 +67,14 @@ angular.module('week3App')
 
   }])
 
+  .controller('PODetailController', ['$scope', '$stateParams', 'purchaseOrderService', function($scope, $stateParams, purchaseOrderService) {
+
+    $scope.purchaseorder = purchaseOrderService.restPurchaseOrders().get({id:parseInt($stateParams.id,10)});
+    $scope.poItems = purchaseOrderService.restPOItems().query({purchase_orderId:parseInt($stateParams.id,10)});
+
+    console.log("po: ", $scope.purchaseorder);
+    console.log("items: ", $scope.poItems);
+
+  }])
+
 ;

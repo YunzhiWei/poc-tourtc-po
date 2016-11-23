@@ -1,0 +1,34 @@
+<div class="col-xs-12 col-xs-push-2">
+
+  <p style="padding:20px;"></p>
+
+  <div class="h1">
+    订单详情
+  </div>
+
+  <p style="padding:10px;"></p>
+
+  &nbsp;&nbsp;<strong>#</strong>{{purchaseorder.id}}
+  &nbsp;&nbsp;<strong>BC:&nbsp;</strong>{{purchaseorder.datetime_order}}
+  &nbsp;&nbsp;<strong>DT:&nbsp;</strong>{{purchaseorder.status}}
+  <br>
+  &nbsp;&nbsp;<strong>Name:&nbsp;</strong>{{purchaseorder.title}}
+  &nbsp;&nbsp;<span class="text-primary"><small>【{{purchaseorder.description}}】</small></span>
+
+  <p style="padding:10px;"></p>
+
+  <ul>
+    <li ng-repeat="item in poItems">
+      <span class="h6">
+        <button>详情</button>
+        <button>编辑</button>
+        <button>删除</button>
+      </span>
+      &nbsp;&nbsp;<strong>#</strong>{{item.id}}
+      &nbsp;&nbsp;<strong>#</strong>{{item.purchase_orderId}}
+      &nbsp;&nbsp;<strong>线路:&nbsp;</strong>{{item.productline}}
+      &nbsp;&nbsp;<strong>价种:&nbsp;</strong>{{item.price_catalog}}
+      &nbsp;&nbsp;<strong>份数:&nbsp;</strong>{{item.copies}}
+    </li>
+  </ul>
+</div>

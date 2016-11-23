@@ -30,6 +30,26 @@ angular.module('week3App', ['ui.router', 'ngResource'])
                 }
             }
         })
+        // route for the authority
+        .state('app.purchaseorder', {
+            url:'purchaseorders',
+            views: {
+                'content@': {
+                  templateUrl : 'views/purchaseorder.html',
+                  controller  : 'PurchaseOrderController'
+                }
+            }
+        })
+        // route for the dishdetail page
+        .state('app.podetails', {
+            url: 'podetails/:id',
+            views: {
+                'content@': {
+                    templateUrl : 'views/podetail.html',
+                    controller  : 'PODetailController'
+               }
+            }
+        })
         // route for the aboutus page
         .state('app.aboutus', {
             url:'aboutus',
