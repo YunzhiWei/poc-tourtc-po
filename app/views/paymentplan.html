@@ -8,13 +8,15 @@
 
   <p style="padding:10px;"></p>
 
+  <span class="h6">
+    <button>去付款</button>
+  </span>
+
+  <p style="padding:10px;"></p>
+
   <ul>
     <li ng-repeat="pp in paymentPlans">
-      <span class="h6">
-        <button>详情</button>
-        <button>编辑</button>
-        <button>删除</button>
-      </span>
+      <input id={{pp.id}} type="checkbox">
       &nbsp;&nbsp;<strong>#</strong>{{pp.id}}
       &nbsp;&nbsp;<strong>线路:&nbsp;</strong>{{pp.po}}
       &nbsp;&nbsp;<strong>价种:&nbsp;</strong>{{pp.po_item}}
