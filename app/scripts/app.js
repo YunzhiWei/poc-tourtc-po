@@ -17,7 +17,7 @@ angular.module('week3App', ['ui.router', 'ngResource'])
                     //controller  : 'IndexController'
                     template: '<h1>hello world</h1>'
                 },
-                'footer': { templateUrl : 'views/newheader.html' }
+                'footer': { templateUrl : 'views/newfooter.html' }
             }
         })
         // route for the authority

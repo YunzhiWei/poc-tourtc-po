@@ -1,19 +1,53 @@
-<div class="col-xs-2">
-  <a ui-sref="app.authority">权限管理</a>
+<style type="text/css">
+  .yapiskan{
+  	height: 40px;
+  	background-color:#efd08f;
+  	transition:top .5s;
+  }
+  .yya{
+  	position:fixed;
+  	left:0;
+  	top:0;
+  }
+  .gizle{top:-90px;}
+  .sabit{top:0;z-index:9999;}
+</style>
+
+<div class="yapiskan">
+  <div class="col-xs-2">
+    <a ui-sref="app.authority">权限管理</a>
+  </div>
+
+  <div class="col-xs-2">
+    <a ui-sref="app.purchaseorder">订单管理</a>
+  </div>
 </div>
 
-<div class="col-xs-2">
-  <a ui-sref="app.purchaseorder">订单管理</a>
-</div>
+<script type="text/javascript">
+$(function(){
+	var h1 = 100;
+	var h2 = 180;
+	var ss = $(document).scrollTop();
+	$(window).scroll(function(){
+		var s = $(document).scrollTop();
 
-<div class="col-xs-2">
-  <a ui-sref="app">menu 3</a>
-</div>
+		if(s< h1){
+			$('.yapiskan').removeClass('yya');
+		}
+    if(s > h1){
+			$('.yapiskan').addClass('yya');
+		}
+    if(s > h2){
+			$('.yapiskan').addClass('gizle');
+			if(s > ss){
+				$('.yapiskan').removeClass('sabit');
+			}
+      else{
+				$('.yapiskan').addClass('sabit');
+			}
+			ss = s;
+		}
+	});
 
-<div class="col-xs-2">
-  <a ui-sref="app">menu 4</a>
-</div>
-
-<div class="col-xs-2">
-  <a ui-sref="app">menu 5</a>
-</div>
+});
+</script>
