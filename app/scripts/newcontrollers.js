@@ -8,8 +8,9 @@ angular.module('week3App')
     $scope.rolename = "客服";
     $scope.selected = ['周边短线','国内长线'];
 
-    $scope.authorities = authorityService.getAuthorities().query();
-    $scope.userroles = authorityService.getUserRoles().query();
+    $scope.authorityGroups = authorityService.restAuthorityGroups().query();
+    $scope.authorities = authorityService.restAuthorities().query();
+    $scope.userroles = authorityService.restUserRoles().query();
 
     $scope.isSelected = function (name) {
       return $scope.selected.indexOf(name) >= 0;
@@ -58,6 +59,11 @@ angular.module('week3App')
       console.log("onClickCreateNewRole");
     };
 
+  }])
+
+  .controller('PurchaseOrderController', ['$scope', 'purchaseOrderService', function($scope, purchaseOrderService) {
+
+    $scope.purchaseorders = purchaseOrderService.restPurchaseOrders().query();
 
   }])
 
