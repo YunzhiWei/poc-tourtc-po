@@ -30,13 +30,15 @@ angular.module('week3App')
 
 }])
 
-
 .service('paymentBillService', ['$resource', 'baseURL', function($resource, baseURL) {
 
   this.restPaymentPlans = function() {
     return $resource(baseURL+"payment_plans/:id", null, {'update':{method:'PUT'}});
   };
 
+  this.restPaymentBills = function() {
+    return $resource(baseURL+"payment_bills/:id", null, {'update':{method:'PUT'}});
+  };
 
 }])
 

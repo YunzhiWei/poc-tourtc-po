@@ -8,15 +8,15 @@
         <li><a ui-sref="app.authority">权限管理</a></li>
           <li><a ui-sref="app.purchaseorder">订单管理</a></li>
           <li class="dropdown">
-            <a i-sref="app.paymentplan" class="dropdown-toggle" data-toggle="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">
               单据付款
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="#">已付账单</a></li>
-              <li><a href="#">待付账单</a></li>
-              <li class="divider"></li>
               <li><a ui-sref="app.paymentplan">消费单据</a></li>
+              <li class="divider"></li>
+              <li><a ui-sref="app.paymentbill">已付账单</a></li>
+              <li><a ui-sref="app.paymentbill">待付账单</a></li>
             </ul>
         </li>
       </ul>

@@ -20,7 +20,7 @@ angular.module('week3App', ['ui.router', 'ngResource'])
                 'footer': { templateUrl : 'views/newfooter.html' }
             }
         })
-        // route for the authority
+
         .state('app.authority', {
             url:'authorities',
             views: {
@@ -30,7 +30,7 @@ angular.module('week3App', ['ui.router', 'ngResource'])
                 }
             }
         })
-        // route for the authority
+
         .state('app.purchaseorder', {
             url:'purchaseorders',
             views: {
@@ -40,17 +40,7 @@ angular.module('week3App', ['ui.router', 'ngResource'])
                 }
             }
         })
-        // route for the authority
-        .state('app.paymentplan', {
-            url:'paymentplans',
-            views: {
-                'content@': {
-                  templateUrl : 'views/paymentplan.html',
-                  controller  : 'PaymentPlanController'
-                }
-            }
-        })
-        // route for the dishdetail page
+
         .state('app.podetails', {
             url: 'podetails/:id',
             views: {
@@ -60,6 +50,27 @@ angular.module('week3App', ['ui.router', 'ngResource'])
                }
             }
         })
+
+        .state('app.paymentplan', {
+            url:'paymentplans',
+            views: {
+                'content@': {
+                  templateUrl : 'views/paymentplan.html',
+                  controller  : 'PaymentPlanController'
+                }
+            }
+        })
+
+        .state('app.paymentbill', {
+            url:'paymentbills',
+            views: {
+                'content@': {
+                  templateUrl : 'views/paymentbill.html',
+                  controller  : 'PaymentBillController'
+                }
+            }
+        })
+
         // route for the aboutus page
         .state('app.aboutus', {
             url:'aboutus',

@@ -91,4 +91,10 @@ angular.module('week3App')
 
   }])
 
+  .controller('PaymentBillController', ['$scope', 'paymentBillService', function($scope, paymentBillService) {
+
+    $scope.paymentBills = paymentBillService.restPaymentBills().query();
+
+  }])
+
 ;
