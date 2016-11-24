@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-xs-push-2">
+<div class="col-xs-12">
 
   <p style="padding:20px;"></p>
 
@@ -8,21 +8,42 @@
 
   <p style="padding:10px;"></p>
 
-  <p style="padding:10px;"></p>
-
-  <ul>
-    <li ng-repeat="pb in paymentBills">
-      <input id={{pb.id}} type="checkbox">
-      &nbsp;&nbsp;<strong>#</strong>{{pb.id}}
-      &nbsp;&nbsp;<strong>收款方:&nbsp;</strong>{{pb.payee}}
-      &nbsp;&nbsp;<strong>付款方:&nbsp;</strong>{{pb.payer}}
-      &nbsp;&nbsp;<strong>制单人:&nbsp;</strong>{{pb.creator}}
-      &nbsp;&nbsp;<strong>金额:&nbsp;</strong>{{pb.amount | currency}}
-      &nbsp;&nbsp;<strong>日期:&nbsp;</strong>{{pb.datetime}}
-      &nbsp;&nbsp;<strong>截止:&nbsp;</strong>{{pb.deadline}}
-      &nbsp;&nbsp;<strong>状态:&nbsp;</strong>{{pb.status}}
-    </li>
-  </ul>
+  <table class="table table-striped">
+    <caption>付款账单列表</caption>
+    <thead>
+      <tr>
+        <th>操作</th>
+        <th>#</th>
+        <th>收款方</th>
+        <th>付款方</th>
+        <th>制单人</th>
+        <th>金额</th>
+        <th>日期</th>
+        <th>截止</th>
+        <th>状态</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="pb in paymentBills">
+        <td>
+          <input id={{pb.id}} type="checkbox">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-primary">详情</button>
+            <button type="button" class="btn btn-sm btn-warning">编辑</button>
+            <button type="button" class="btn btn-sm btn-danger">删除</button>
+          </div>
+        </td>
+        <td>{{pb.id}}</td>
+        <td>{{pb.payee}}</td>
+        <td>{{pb.payer}}</td>
+        <td>{{pb.creator}}</td>
+        <td>{{pb.amount | currency}}</td>
+        <td>{{pb.datetime}}</td>
+        <td>{{pb.deadline}}</td>
+        <td>{{pb.status}}</td>
+      </tr>
+    </tbody>
+  </table>
 
   <p style="padding:10px;"></p>
 
