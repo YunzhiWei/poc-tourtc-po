@@ -2,9 +2,9 @@
 <!-- title: title -->
 <!-- plans: the-plans -->
 
-<h3>{{title}}</h3>
+<h3>{{pplist.title}}</h3>
 <ul>
-  <li ng-repeat="pp in plans">
+  <li ng-repeat="pp in pplist.plans">
     <input id={{pp.id}} type="checkbox">
     &nbsp;&nbsp;<strong>#</strong>{{pp.id}}
     &nbsp;&nbsp;<strong>线路:&nbsp;</strong>{{pp.po}}

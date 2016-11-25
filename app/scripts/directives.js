@@ -7,12 +7,19 @@ angular.module('week3App')
   var ddo = {
     templateUrl: 'directives/paymentplanlist.html',
     scope: {
-      plans: '=thePlans',
-      title: '@title'
-    }
+      plans: '<',
+      title: '@'
+    },
+    controller: PaymentPlanListController,
+    controllerAs: 'pplist',
+    bindToController: true
   };
 
   return ddo;
 })
 
 ;
+
+function PaymentPlanListController() {
+  var pplist = this;
+}
