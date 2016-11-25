@@ -14,18 +14,7 @@
 
   <p style="padding:10px;"></p>
 
-  <ul>
-    <li ng-repeat="pp in paymentPlans">
-      <input id={{pp.id}} type="checkbox">
-      &nbsp;&nbsp;<strong>#</strong>{{pp.id}}
-      &nbsp;&nbsp;<strong>线路:&nbsp;</strong>{{pp.po}}
-      &nbsp;&nbsp;<strong>价种:&nbsp;</strong>{{pp.po_item}}
-      &nbsp;&nbsp;<strong>金额:&nbsp;</strong>{{pp.amount | currency}}
-      &nbsp;&nbsp;<strong>日期:&nbsp;</strong>{{pp.datetime}}
-      &nbsp;&nbsp;<strong>截止:&nbsp;</strong>{{pp.deadline}}
-      &nbsp;&nbsp;<strong>账单:&nbsp;</strong>{{pp.bill_number}}
-    </li>
-  </ul>
+  <payment-plan-list the-plans="paymentPlans" title="已消费项目列表（未结账）"></payment-plan-list>
 
   <p style="padding:10px;"></p>
 

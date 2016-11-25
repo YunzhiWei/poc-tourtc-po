@@ -1,40 +1,17 @@
 <!-- Required inputs -->
 <!-- title: title -->
-<!-- bills: the-bills -->
+<!-- plans: the-plans -->
 
-<table class="table table-striped">
-  <caption>{{ title }}</caption>
-  <thead>
-    <tr>
-      <th>操作</th>
-      <th>#</th>
-      <th>收款方</th>
-      <th>付款方</th>
-      <th>制单人</th>
-      <th>金额</th>
-      <th>日期</th>
-      <th>截止</th>
-      <th>状态</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="pb in bills">
-      <td>
-        <input id={{pb.id}} type="checkbox">
-        <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-primary">详情</button>
-          <button type="button" class="btn btn-sm btn-warning">编辑</button>
-          <button type="button" class="btn btn-sm btn-danger">删除</button>
-        </div>
-      </td>
-      <td>{{pb.id}}</td>
-      <td>{{pb.payee}}</td>
-      <td>{{pb.payer}}</td>
-      <td>{{pb.creator}}</td>
-      <td>{{pb.amount | currency}}</td>
-      <td>{{pb.datetime}}</td>
-      <td>{{pb.deadline}}</td>
-      <td>{{pb.status}}</td>
-    </tr>
-  </tbody>
-</table>
+<h3>{{title}}</h3>
+<ul>
+  <li ng-repeat="pp in plans">
+    <input id={{pp.id}} type="checkbox">
+    &nbsp;&nbsp;<strong>#</strong>{{pp.id}}
+    &nbsp;&nbsp;<strong>线路:&nbsp;</strong>{{pp.po}}
+    &nbsp;&nbsp;<strong>价种:&nbsp;</strong>{{pp.po_item}}
+    &nbsp;&nbsp;<strong>金额:&nbsp;</strong>{{pp.amount | currency}}
+    &nbsp;&nbsp;<strong>日期:&nbsp;</strong>{{pp.datetime}}
+    &nbsp;&nbsp;<strong>截止:&nbsp;</strong>{{pp.deadline}}
+    &nbsp;&nbsp;<strong>账单:&nbsp;</strong>{{pp.bill_number}}
+  </li>
+</ul>

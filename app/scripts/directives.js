@@ -7,7 +7,7 @@ angular.module('week3App')
   var ddo = {
     templateUrl: 'directives/paymentplanlist.html',
     scope: {
-      bills: '=theBills',
+      plans: '=thePlans',
       title: '@title'
     }
   };
