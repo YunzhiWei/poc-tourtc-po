@@ -4,7 +4,7 @@
 angular.module('week3App')
 
 .component('paymentPlanList', {
-    templateUrl: 'directives/paymentplanlist.html',
+    templateUrl: 'components/paymentplanlist.html',
     controller: PaymentPlanListController,
     bindings: {
       plans: '<',
