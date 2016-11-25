@@ -47,6 +47,12 @@
 
   <p style="padding:10px;"></p>
 
+  <payment-bill-list
+    bills="paymentBills"
+    title="付款账单列表"
+    ></payment-bill-list>
+
+  <p style="padding:10px;"></p>
 
   <payment-plan-list ng-if="detailBillId"
     plans="paymentPlans"
@@ -54,5 +60,7 @@
     title="消费项目列表"
     ischeckboxenable="false"
     ></payment-plan-list>
+
+  <p style="padding:10px;"></p>
 
 </div>
