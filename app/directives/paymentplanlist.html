@@ -2,10 +2,13 @@
 <!-- title: title -->
 <!-- plans: the-plans -->
 
-<h3>{{pplist.title}}</h3>
+<div class="h3">
+  {{pplist.title}}
+</div>
+
 <ul>
   <li ng-repeat="pp in pplist.plans">
-    <input id={{pp.id}} type="checkbox">
+    <input id={{pp.id}} type="checkbox" ng-click="pplist.updateSelection($event, $index)">
     &nbsp;&nbsp;<strong>#</strong>{{pp.id}}
     &nbsp;&nbsp;<strong>线路:&nbsp;</strong>{{pp.po}}
     &nbsp;&nbsp;<strong>价种:&nbsp;</strong>{{pp.po_item}}
@@ -15,3 +18,7 @@
     &nbsp;&nbsp;<strong>账单:&nbsp;</strong>{{pp.bill_number}}
   </li>
 </ul>
+
+<div class="h5">
+  选中项目金额汇总：{{pplist.totalamountofselecteditems | currency}}
+</div>
