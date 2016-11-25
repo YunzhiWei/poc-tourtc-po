@@ -1,5 +1,9 @@
+<!-- Required inputs -->
+<!-- title: title -->
+<!-- bills: the-bills -->
+
 <table class="table table-striped">
-  <caption>付款账单列表</caption>
+  <caption>{{ title }}</caption>
   <thead>
     <tr>
       <th>操作</th>
@@ -14,7 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="pb in paymentBills">
+    <tr ng-repeat="pb in bills">
       <td>
         <input id={{pb.id}} type="checkbox">
         <div class="btn-group">
