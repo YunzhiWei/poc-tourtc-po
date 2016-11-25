@@ -8,7 +8,7 @@
 
 <ul>
   <li ng-repeat="pp in $ctrl.plans">
-    <input id={{pp.id}} type="checkbox" ng-click="$ctrl.updateSelection($event, $index)">
+    <input id={{pp.id}} type="checkbox" ng-click="$ctrl.updateSelection($event, $index)" ng-if="$ctrl.ischeckboxenable">
     &nbsp;&nbsp;<strong>#</strong>{{pp.id}}
     &nbsp;&nbsp;<strong>线路:&nbsp;</strong>{{pp.po}}
     &nbsp;&nbsp;<strong>价种:&nbsp;</strong>{{pp.po_item}}
@@ -20,5 +20,7 @@
 </ul>
 
 <div class="h5">
-  选中项目金额汇总：{{$ctrl.totalamountofselecteditems | currency}}
+  <span>列表总金额：{{$ctrl.totalamount | currency}}</span>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <span ng-if="$ctrl.ischeckboxenable">选中项目金额汇总：{{$ctrl.totalamountofselecteditems | currency}}</span>
 </div>
