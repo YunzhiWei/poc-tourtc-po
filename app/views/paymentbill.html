@@ -28,9 +28,9 @@
         <td>
           <input id={{pb.id}} type="checkbox">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-primary">详情</button>
-            <button type="button" class="btn btn-sm btn-warning">编辑</button>
-            <button type="button" class="btn btn-sm btn-danger">删除</button>
+            <button type="button" class="btn btn-sm btn-primary" ng-click="showDetails(pb.id)">详情</button>
+            <button type="button" class="btn btn-sm btn-warning" ng-click="showDetails(pb.id)">编辑</button>
+            <button type="button" class="btn btn-sm btn-danger" ng-click="showDetails(pb.id)">删除</button>
           </div>
         </td>
         <td>{{pb.id}}</td>
@@ -46,5 +46,13 @@
   </table>
 
   <p style="padding:10px;"></p>
+
+
+  <payment-plan-list ng-if="detailBillId"
+    plans="paymentPlans"
+    planlistlength="paymentPlans.length"
+    title="消费项目列表"
+    ischeckboxenable="false"
+    ></payment-plan-list>
 
 </div>
