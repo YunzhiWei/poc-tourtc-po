@@ -62,7 +62,7 @@ angular.module('week3App', ['ui.router', 'ngResource'])
         })
 
         .state('app.paymentbill', {
-            url:'paymentbills',
+            url:'paymentbills?status',
             views: {
                 'content@': {
                   templateUrl : 'views/paymentbill.html',

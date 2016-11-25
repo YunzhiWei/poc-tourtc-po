@@ -2,48 +2,12 @@
 
   <p style="padding:20px;"></p>
 
-  <div class="h1">
-     付款账单
+  <div class="h1" ng-if="!viewtitle">
+     全部账单
   </div>
-
-  <p style="padding:10px;"></p>
-
-  <table class="table table-striped">
-    <caption>付款账单列表</caption>
-    <thead>
-      <tr>
-        <th>操作</th>
-        <th>#</th>
-        <th>收款方</th>
-        <th>付款方</th>
-        <th>制单人</th>
-        <th>金额</th>
-        <th>日期</th>
-        <th>截止</th>
-        <th>状态</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="pb in paymentBills">
-        <td>
-          <input id={{pb.id}} type="checkbox">
-          <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-primary" ng-click="showDetails(pb.id)">详情</button>
-            <button type="button" class="btn btn-sm btn-warning" ng-click="showDetails(pb.id)">编辑</button>
-            <button type="button" class="btn btn-sm btn-danger" ng-click="showDetails(pb.id)">删除</button>
-          </div>
-        </td>
-        <td>{{pb.id}}</td>
-        <td>{{pb.payee}}</td>
-        <td>{{pb.payer}}</td>
-        <td>{{pb.creator}}</td>
-        <td>{{pb.amount | currency}}</td>
-        <td>{{pb.datetime}}</td>
-        <td>{{pb.deadline}}</td>
-        <td>{{pb.status}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="h1" ng-if="viewtitle">
+     {{viewtitle}}账单
+  </div>
 
   <p style="padding:10px;"></p>
 
@@ -51,15 +15,6 @@
     bills="paymentBills"
     title="付款账单列表"
     ></payment-bill-list>
-
-  <p style="padding:10px;"></p>
-
-  <payment-plan-list ng-if="detailBillId"
-    plans="paymentPlans"
-    planlistlength="paymentPlans.length"
-    title="消费项目列表"
-    ischeckboxenable="false"
-    ></payment-plan-list>
 
   <p style="padding:10px;"></p>
 

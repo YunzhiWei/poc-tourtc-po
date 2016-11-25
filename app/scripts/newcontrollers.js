@@ -85,20 +85,16 @@ angular.module('week3App')
     }
   }])
 
-  .controller('PaymentPlanController', ['$scope', '$stateParams', 'paymentBillService', function($scope, stateParams, paymentBillService) {
+  .controller('PaymentPlanController', ['$scope', 'paymentBillService', function($scope, paymentBillService) {
 
     $scope.paymentPlans = paymentBillService.restPaymentPlans().query({bill_number:"x"});
 
   }])
 
-  .controller('PaymentBillController', ['$scope', 'paymentBillService', function($scope, paymentBillService) {
+  .controller('PaymentBillController', ['$scope', '$stateParams', 'paymentBillService', function($scope, $stateParams, paymentBillService) {
 
-    $scope.paymentBills = paymentBillService.restPaymentBills().query();
-
-    $scope.showDetails = function (id) {
-      $scope.detailBillId = id;
-      $scope.paymentPlans = paymentBillService.restPaymentPlans().query({bill_number:parseInt(id,10)});
-    }
+    $scope.paymentBills = paymentBillService.restPaymentBills().query({status:$stateParams.status});
+    if ($stateParams.status) $scope.viewtitle = $stateParams.status;
 
   }])
 
