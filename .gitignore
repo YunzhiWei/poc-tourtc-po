@@ -8,4 +8,5 @@
 # /output
 
 # Ignore bat files
-*.bat
+# *.bat
+# *.sh
