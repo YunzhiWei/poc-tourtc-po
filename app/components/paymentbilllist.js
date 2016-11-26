@@ -18,6 +18,8 @@ function PaymentBillListController(paymentBillService) {
   var $ctrl = this;
 
   $ctrl.showDetails = function (id) {
+    $ctrl.paymentPlans = [];
+    $ctrl.detailBillId = undefined;
     paymentBillService.restPaymentPlans().query({bill_number:parseInt(id,10)})
     .$promise.then(
       function(response) {
