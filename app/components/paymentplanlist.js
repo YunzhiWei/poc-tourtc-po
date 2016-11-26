@@ -21,7 +21,15 @@ function PaymentPlanListController() {
 
   $ctrl.$onInit = function () {
     $ctrl.totalamountofselecteditems = 0;
-    $ctrl.totalamount = 0;
+    $ctrl.totalamount = $ctrl.plans
+    .map(function(item) {
+      console.log("item.amount: ", item.amount);
+      return item.amount;
+    })
+    .reduce(function(accu, value) {
+      console.log(accu, " + ", value, " = ", accu + value);
+      return accu + value;
+    }, 0);
   };
 
   $ctrl.$onChanges = function (changeObj) {
@@ -31,18 +39,18 @@ function PaymentPlanListController() {
     console.log("$ctrl.plans: ", $ctrl.plans, $ctrl.plans[0], $ctrl.plans[1]);
     console.log("totalamount: ", $ctrl.totalamount);
 
-    if (changeObj.planlistlength.currentValue > 0) {
-      console.log("map reduce");
-      $ctrl.totalamount = $ctrl.plans
-      .map(function(item) {
-        console.log("item.amount: ", item.amount);
-        return item.amount;
-      })
-      .reduce(function(accu, value) {
-        console.log(accu, " + ", value, " = ", accu + value);
-        return accu + value;
-      }, 0);
-    }
+    // if (changeObj.planlistlength.currentValue > 0) {
+    //   console.log("map reduce");
+    //   $ctrl.totalamount = $ctrl.plans
+    //   .map(function(item) {
+    //     console.log("item.amount: ", item.amount);
+    //     return item.amount;
+    //   })
+    //   .reduce(function(accu, value) {
+    //     console.log(accu, " + ", value, " = ", accu + value);
+    //     return accu + value;
+    //   }, 0);
+    // }
   }
 
   $ctrl.updateSelection = function($event, id) {
