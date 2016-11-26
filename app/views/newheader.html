@@ -5,21 +5,20 @@
     </div>
     <div>
       <ul class="nav navbar-nav">
-        <li><a ui-sref="app.authority">权限管理</a></li>
-          <li><a ui-sref="app.purchaseorder">订单管理</a></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown">
-              单据付款
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a ui-sref="app.paymentplan">消费单据（未出账单）</a></li>
-              <li class="divider"></li>
-              <!-- the following is a workaround, please do more research to find a solution -->
-              <li><a href="index.html#/paymentbills">全部账单</a></li>
-              <li><a ui-sref="app.paymentbill({status:'已完成'})">已付账单</a></li>
-              <li><a ui-sref="app.paymentbill({status:'未付款'})">待付账单</a></li>
-            </ul>
+        <li ui-sref-active="active"><a ui-sref="app.authority">权限管理</a></li>
+        <li ui-sref-active="active"><a ui-sref="app.purchaseorder">订单管理</a></li>
+        <li ui-sref-active="active" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            单据付款<b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li ui-sref-active-eq="active"><a ui-sref="app.paymentplan">消费单据（未出账单）</a></li>
+            <li class="divider"></li>
+            <!-- the following is a workaround, please do more research to find a solution -->
+            <li ui-sref-active-eq="active"><a ui-sref="app.paymentbill({status:''})">全部账单</a></li>
+            <li ui-sref-active-eq="active"><a ui-sref="app.paymentbill({status:'已完成'})">已付账单</a></li>
+            <li ui-sref-active-eq="active"><a ui-sref="app.paymentbill({status:'未付款'})">待付账单</a></li>
+          </ul>
         </li>
       </ul>
     </div>
