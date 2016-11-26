@@ -85,18 +85,19 @@ angular.module('week3App')
     }
   }])
 
-  .controller('PaymentPlanController', ['$scope', 'paymentBillService', function($scope, paymentBillService) {
+  .controller('PaymentPlanController', ['$scope', 'plans', function($scope, plans) {
 
-    paymentBillService.restPaymentPlans().query({bill_number:"x"})
-    .$promise.then(
-      function(response) {
-        $scope.paymentPlans = response;
-      },
-      function(response) {
-        $scope.message = "Error: " + response.status + " " + response.statusText;
-      }
-    );;
+    $scope.paymentPlans = plans;
 
+    // paymentBillService.restPaymentPlans().query({bill_number:"x"})
+    // .$promise.then(
+    //   function(response) {
+    //     $scope.paymentPlans = response;
+    //   },
+    //   function(response) {
+    //     $scope.message = "Error: " + response.status + " " + response.statusText;
+    //   }
+    // );
 
   }])
 

@@ -56,7 +56,12 @@ angular.module('week3App', ['ui.router', 'ngResource'])
             views: {
                 'content@': {
                   templateUrl : 'views/paymentplan.html',
-                  controller  : 'PaymentPlanController'
+                  controller  : 'PaymentPlanController',
+                  resolve: {
+                    plans: ['paymentBillService', function (paymentBillService) {
+                      return paymentBillService.restPaymentPlans().query({bill_number:"x"}).$promise;
+                    }]
+                  }
                 }
             }
         })
