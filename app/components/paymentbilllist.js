@@ -18,8 +18,16 @@ function PaymentBillListController(paymentBillService) {
   var $ctrl = this;
 
   $ctrl.showDetails = function (id) {
-    $ctrl.detailBillId = id;
-    $ctrl.paymentPlans = paymentBillService.restPaymentPlans().query({bill_number:parseInt(id,10)});
+    paymentBillService.restPaymentPlans().query({bill_number:parseInt(id,10)})
+    .$promise.then(
+      function(response) {
+        $ctrl.paymentPlans = response;
+        $ctrl.detailBillId = id;
+      },
+      function(response) {
+        $ctrl.message = "Error: " + response.status + " " + response.statusText;
+      }
+    );
   }
 
 }

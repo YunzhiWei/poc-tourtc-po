@@ -14,7 +14,7 @@
 
   <p style="padding:10px;"></p>
 
-  <payment-plan-list
+  <payment-plan-list ng-if="paymentPlans"
     plans="paymentPlans"
     planlistlength="paymentPlans.length"
     title="已消费项目列表（未结账）"

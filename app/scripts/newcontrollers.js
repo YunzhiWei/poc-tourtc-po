@@ -87,7 +87,16 @@ angular.module('week3App')
 
   .controller('PaymentPlanController', ['$scope', 'paymentBillService', function($scope, paymentBillService) {
 
-    $scope.paymentPlans = paymentBillService.restPaymentPlans().query({bill_number:"x"});
+    paymentBillService.restPaymentPlans().query({bill_number:"x"})
+    .$promise.then(
+      function(response) {
+        $scope.paymentPlans = response;
+      },
+      function(response) {
+        $scope.message = "Error: " + response.status + " " + response.statusText;
+      }
+    );;
+
 
   }])
 
