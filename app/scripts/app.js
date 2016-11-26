@@ -11,7 +11,10 @@ angular.module('week3App', ['ui.router', 'ngResource'])
         .state('app', {
             url:'/',
             views: {
-                'header': { templateUrl : 'views/newheader.html' },
+                'header': {
+                  templateUrl : 'views/newheader.html',
+                  controller: 'HeaderController as headctrl'
+                },
                 'content': {
                     //templateUrl : 'views/home.html',
                     //controller  : 'IndexController'

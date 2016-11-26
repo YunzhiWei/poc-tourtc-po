@@ -108,4 +108,48 @@ angular.module('week3App')
 
   }])
 
+  .controller('HeaderController', ['$rootScope', '$scope', function($rootScope, $scope) {
+
+    var $ctrl = this;
+    var cancellers = [];
+
+    $ctrl.$onInit = function () {
+      var cancel = $rootScope.$on('$stateChangeStart',
+        function(event, toState, toParams, fromState, fromParams, options){
+          console.log("stateChangeStart - toState: ", toState);
+        }
+      );
+      cancellers.push(cancel);
+
+      cancel = $rootScope.$on('$stateChangeSuccess',
+        function(event, toState, toParams, fromState, fromParams){
+          console.log("stateChangeSuccess - toState: ", toState);
+          if (toState.name == "app.paymentplan" || toState.name == "app.paymentbill") {
+            console.log("dropdown activate");
+            $ctrl.billdropdownactive = true;
+          }
+          else {
+            console.log("dropdown deactivate");
+            $ctrl.billdropdownactive = false;
+          }
+        }
+      );
+      cancellers.push(cancel);
+
+      cancel = $rootScope.$on('$stateChangeError',
+        function(event, toState, toParams, fromState, fromParams, error){
+          console.log("stateChangeError - toState: ", toState);
+        }
+      );
+      cancellers.push(cancel);
+    };
+
+    $ctrl.$onDestroy = function () {
+      cancellers.forEach(function (item) {
+        item();
+      });
+    };
+
+  }])
+
 ;
