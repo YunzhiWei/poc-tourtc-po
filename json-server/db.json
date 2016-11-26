@@ -1,0 +1,316 @@
+{
+  "authority_groups": [
+    {
+      "id": 1,
+      "name": "业务类型",
+      "description": "Short, long, abroad, ..."
+    },
+    {
+      "id": 2,
+      "name": "数据类型",
+      "description": "Product, Order, ..."
+    }
+  ],
+
+  "authorities": [
+    {
+      "id": 0,
+      "name": "周边短线",
+      "subId": 0,
+      "code": 1,
+      "description": "Short line",
+      "authority_groupId": 1
+    },
+    {
+      "id": 1,
+      "name": "国内长线",
+      "subId": 1,
+      "code": 2,
+      "description": "long line",
+      "authority_groupId": 1
+    },
+    {
+      "id": 2,
+      "name": "出境",
+      "subId": 2,
+      "code": 4,
+      "description": "oversea",
+      "authority_groupId": 1
+    },
+    {
+      "id": 3,
+      "name": "邮轮",
+      "subId": 4,
+      "code": 8,
+      "description": "cruise ship",
+      "authority_groupId": 1
+    },
+    {
+      "id": 4,
+      "name": "产品",
+      "subId": 0,
+      "code": 1,
+      "description": "product",
+      "authority_groupId": 2
+    },
+    {
+      "id": 5,
+      "name": "订单",
+      "subId": 1,
+      "code": 2,
+      "description": "purchase order",
+      "authority_groupId": 2
+    },
+    {
+      "id": 6,
+      "name": "财务",
+      "subId": 2,
+      "code": 4,
+      "description": "finance",
+      "authority_groupId": 2
+    },
+    {
+      "id": 7,
+      "name": "账号",
+      "subId": 3,
+      "code": 8,
+      "description": "user",
+      "authority_groupId": 2
+    }
+  ],
+  "user_roles": [
+    {
+      "id": 0,
+      "name": "管理员",
+      "businessCategory": 12,
+      "dataType": 11,
+      "description": "我是管理员"
+    },
+    {
+      "id": 1,
+      "name": "客服",
+      "businessCategory": 12,
+      "dataType": 11,
+      "description": "我是客服人员，诚信为您服务"
+    },
+    {
+      "id": 2,
+      "name": "短线业务专员",
+      "businessCategory": 12,
+      "dataType": 11,
+      "description": "我是平台短线业务专员"
+    }
+  ],
+  "purchase_orders": [
+    {
+      "id": 1,
+      "title": "福地研发秋季团建杭州两日游",
+      "status": "草稿",
+      "sales_name": "王五",
+      "datetime_order": "",
+      "description": "周六早晨上海出发，周日回"
+    },
+    {
+      "id": 2,
+      "title": "文瑞客服庆功会扬州两日游",
+      "status": "待回复",
+      "sales_name": "张三",
+      "datetime_order": "2016-10-15",
+      "description": "周六早晨人民广场集合，周日回"
+    },
+    {
+      "id": 3,
+      "title": "财务系统升级动员会苏州一日",
+      "status": "确认",
+      "sales_name": "李四",
+      "datetime_order": "2016-10-20",
+      "description": "周六中午苏州天外天酒家汇合，周日回"
+    }
+  ],
+  "po_items": [
+    {
+      "id": 0,
+      "productline": "杭州两日游",
+      "price_catalog": "成人价",
+      "price": 100.00,
+      "copies": 3,
+      "purchase_orderId": 1
+    },
+    {
+      "id": 1,
+      "productline": "杭州两日游",
+      "price_catalog": "老人价",
+      "price": 120.00,
+      "copies": 1,
+      "purchase_orderId": 1
+    },
+    {
+      "id": 2,
+      "productline": "杭州两日游",
+      "price_catalog": "儿童价",
+      "price": 80.00,
+      "copies": 2,
+      "purchase_orderId": 1
+    },
+    {
+      "id": 3,
+      "productline": "苏州两日游",
+      "price_catalog": "成人价",
+      "price": 120.00,
+      "copies": 5,
+      "purchase_orderId": 2
+    },
+    {
+      "id": 4,
+      "productline": "苏州两日游",
+      "price_catalog": "儿童价",
+      "price": 70.00,
+      "copies": 3,
+      "purchase_orderId": 2
+    }
+  ],
+  "payment_plans": [
+    {
+      "id": 1,
+      "po": "杭州两日游",
+      "po_item": "成人价",
+      "po_itemId": 1,
+      "amount": 20.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-20",
+      "bill_number": "x"
+    },
+    {
+      "id": 2,
+      "po": "杭州两日游",
+      "po_item": "成人价",
+      "po_itemId": 1,
+      "amount": 80.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-25",
+      "bill_number": "x"
+    },
+    {
+      "id": 3,
+      "po": "杭州两日游",
+      "po_item": "成人价",
+      "po_itemId": 2,
+      "amount": 100.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-20",
+      "bill_number": "x"
+    },
+    {
+      "id": 4,
+      "po": "杭州两日游",
+      "po_item": "成人价",
+      "po_itemId": 2,
+      "amount": 100.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-25",
+      "bill_number": "x"
+    },
+    {
+      "id": 5,
+      "po": "杭州两日游",
+      "po_item": "成人价",
+      "po_itemId": 1,
+      "amount": 20.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-20",
+      "bill_number": 1
+    },
+    {
+      "id": 6,
+      "po": "杭州两日游",
+      "po_item": "成人价",
+      "po_itemId": 1,
+      "amount": 80.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-25",
+      "bill_number": 1
+    },
+    {
+      "id": 7,
+      "po": "杭州两日游",
+      "po_item": "成人价",
+      "po_itemId": 2,
+      "amount": 100.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-20",
+      "bill_number": 1
+    },
+    {
+      "id": 8,
+      "po": "杭州两日游",
+      "po_item": "成人价",
+      "po_itemId": 1,
+      "amount": 20.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-20",
+      "bill_number": 2
+    },
+    {
+      "id": 9,
+      "po": "杭州两日游",
+      "po_item": "成人价",
+      "po_itemId": 1,
+      "amount": 80.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-25",
+      "bill_number": 2
+    },
+    {
+      "id": 10,
+      "po": "杭州两日游",
+      "po_item": "成人价",
+      "po_itemId": 1,
+      "amount": 80.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-25",
+      "bill_number": 2
+    },
+    {
+      "id": 11,
+      "po": "杭州两日游",
+      "po_item": "成人价",
+      "po_itemId": 1,
+      "amount": 80.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-25",
+      "bill_number": "x"
+    },
+    {
+      "id": 12,
+      "po": "杭州两日游",
+      "po_item": "成人价",
+      "po_itemId": 2,
+      "amount": 100.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-20",
+      "bill_number": "x"
+    }
+  ],
+  "payment_bills": [
+    {
+      "id": 1,
+      "payee": "福地旅游",
+      "payer": "中青旅上海分公司",
+      "creator": "小红",
+      "amount": 20000.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-20",
+      "status": "未付款"
+    },
+    {
+      "id": 2,
+      "payee": "宏乾国际",
+      "payer": "皇家加勒比邮轮公司",
+      "creator": "小燕",
+      "amount": 12000.00,
+      "datetime": "2016-10-15",
+      "deadline": "2016-10-20",
+      "status": "已完成"
+    }
+  ]
+}
