@@ -2,60 +2,12 @@
 
   <p style="padding:20px;"></p>
 
-  <div class="h1">
-    角色定义
-    <span class="h4"><button ng-click="onClickAddAuthority(group.id)">创建新角色</button></span>
-  </div>
-  <div>
-    <strong>Name:&nbsp;</strong><input type="text" name="firstname">
-  </div>
+  <role-list title="角色列表"></role-list>
+
   <p style="padding:10px;"></p>
-  <ul>
-    <li ng-repeat="role in userroles">
-      <span class="h6">
-        <button>详情</button>
-        <button>编辑</button>
-        <button>删除</button>
-      </span>
-      &nbsp;&nbsp;<strong>#</strong>{{role.id}}
-      &nbsp;&nbsp;<strong>BC:&nbsp;</strong>{{role.businessCategory}}
-      &nbsp;&nbsp;<strong>DT:&nbsp;</strong>{{role.dataType}}
-      &nbsp;&nbsp;<strong>Name:&nbsp;</strong>{{role.name}}
-      &nbsp;&nbsp;<span class="text-primary"><small>【{{role.description}}】</small></span>
-    </li>
-  </ul>
+
+  <authority-list title="权限分组列表"></authority-list>
 
   <p style="padding:20px;"></p>
-
-  <div class="h2">
-    当前角色：{{rolename}}
-    <span class="h4"><button ng-click="onClickAddAuthority(group.id)">增加权限分组</button></span>
-  </div>
-  <div>
-    <strong>Name:&nbsp;</strong><input type="text" name="firstname">
-  </div>
-  <p style="padding:10px;"></p>
-  <div ng-repeat="group in authorityGroups">
-    <div class="h3">
-      #&nbsp;&nbsp;{{group.id}}&nbsp;&nbsp;{{group.name}}
-      &nbsp;&nbsp;<span><small>【{{group.description}}】</small></span>
-      <span class="h4"><button ng-click="onClickAddAuthority(group.id)">增加权限类型</button></span>
-    </div>
-    <div>
-      <strong>Name:&nbsp;</strong><input type="text" name="firstname">
-    </div>
-    <p style="padding:10px;"></p>
-    <ul>
-      <li ng-repeat="authority in authorities | filter:{authority_groupId:group.id}">
-        <p>
-          <input id={{authority.name}} type="checkbox" ng-checked="isSelected(authority.name)" ng-click="updateSelection($event, authority.name)">
-          &nbsp;&nbsp;<strong>#</strong>{{authority.id}}
-          &nbsp;&nbsp;<strong>#</strong>{{authority.subId}}
-          &nbsp;&nbsp;<strong>Code:</strong>&nbsp;{{authority.code}}
-          &nbsp;&nbsp;<strong>Name:</strong>&nbsp;{{authority.name}}
-          &nbsp;&nbsp;<span><small>【{{authority.description}}】</small></span>
-        </p>
-      </li>
-    </ul>
-  </div>
+  
 </div>

@@ -28,8 +28,9 @@ angular.module('week3App', ['ui.router', 'ngResource'])
             url:'authorities',
             views: {
                 'content@': {
-                  templateUrl : 'views/authority.html',
-                  controller  : 'AuthorityController'
+                  templateUrl : 'views/authority.html'
+                  // ,
+                  // controller  : 'AuthorityController'
                 }
             }
         })
