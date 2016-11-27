@@ -125,12 +125,16 @@ angular.module('week3App')
         function(event, toState, toParams, fromState, fromParams){
           console.log("stateChangeSuccess - toState: ", toState);
           if (toState.name == "app.paymentplan" || toState.name == "app.paymentbill") {
-            console.log("dropdown activate");
             $ctrl.billdropdownactive = true;
           }
           else {
-            console.log("dropdown deactivate");
             $ctrl.billdropdownactive = false;
+          }
+          if (toState.name == "app.authority") {
+            $ctrl.authdropdownactive = true;
+          }
+          else {
+            $ctrl.authdropdownactive = false;
           }
         }
       );
