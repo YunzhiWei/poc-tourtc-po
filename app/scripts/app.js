@@ -35,6 +35,21 @@ angular.module('week3App', ['ui.router', 'ngResource'])
             }
         })
 
+        .state('app.role', {
+            url:'roles',
+            views: {
+                'content@': {
+                  templateUrl : 'views/role.html',
+                  controller  : 'RoleController',
+                  resolve: {
+                    roles: ['authorityService', function (authorityService) {
+                      return authorityService.restUserRoles().query().$promise;
+                    }]
+                  }
+                }
+            }
+        })
+
         .state('app.purchaseorder', {
             url:'purchaseorders',
             views: {

@@ -5,16 +5,15 @@ angular.module('week3App')
     templateUrl: 'components/rolelist.html',
     controller: RoleListController,
     bindings: {
+      userroles: '<',
       title: '@'
     }
 })
 ;
 
-RoleListController.$inject = ['authorityService'];
-function RoleListController(authorityService) {
+RoleListController.$inject = [];
+function RoleListController() {
   var $ctrl = this;
-
-  $ctrl.userroles = authorityService.restUserRoles().query();
 
   $ctrl.onClickCreateNewRole = function () {
     console.log("onClickCreateNewRole");

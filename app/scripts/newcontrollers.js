@@ -7,6 +7,12 @@ angular.module('week3App')
   //
   // }])
 
+  .controller('RoleController', ['$scope', 'roles', function($scope, roles) {
+
+    $scope.userrolelist = roles;
+
+  }])
+
   .controller('PurchaseOrderController', ['$scope', 'purchaseOrderService', function($scope, purchaseOrderService) {
 
     $scope.purchaseorders = purchaseOrderService.restPurchaseOrders().query();
