@@ -7,20 +7,19 @@ angular.module('week3App')
     templateUrl: 'components/authoritylist.html',
     controller: AuthorityListController,
     bindings: {
+      groups: '<',
+      authorities: '<',
       title: '@'
     }
 })
 ;
 
-AuthorityListController.$inject = ['authorityService'];
-function AuthorityListController(authorityService) {
+AuthorityListController.$inject = [];
+function AuthorityListController() {
   var $ctrl = this;
 
   $ctrl.rolename = "客服";
   $ctrl.selected = ['周边短线','国内长线'];
-
-  $ctrl.groups = authorityService.restAuthorityGroups().query();
-  $ctrl.authorities = authorityService.restAuthorities().query();
 
   $ctrl.isSelected = function (name) {
     return $ctrl.selected.indexOf(name) >= 0;

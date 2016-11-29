@@ -3,9 +3,12 @@
 
 angular.module('week3App')
 
-  // .controller('AuthorityController', ['$scope', 'authorityService', function($scope, authorityService) {
-  //
-  // }])
+  .controller('AuthorityController', ['$scope', 'groups', 'authorities', function($scope, groups, authorities) {
+
+    $scope.grouplist = groups;
+    $scope.authoritylist = authorities;
+
+  }])
 
   .controller('RoleController', ['$scope', 'roles', function($scope, roles) {
 
