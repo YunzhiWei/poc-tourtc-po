@@ -84,6 +84,7 @@
       "name": "管理员",
       "businessCategory": 12,
       "dataType": 11,
+      "code": [0, 1, 3],
       "description": "我是管理员"
     },
     {
@@ -91,6 +92,7 @@
       "name": "客服",
       "businessCategory": 12,
       "dataType": 11,
+      "code": [0, 1, 6],
       "description": "我是客服人员，诚信为您服务"
     },
     {
@@ -98,6 +100,7 @@
       "name": "短线业务专员",
       "businessCategory": 12,
       "dataType": 11,
+      "code": [0, 3, 6],
       "description": "我是平台短线业务专员"
     }
   ],

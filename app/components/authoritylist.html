@@ -16,10 +16,10 @@
   <ul>
     <li ng-repeat="authority in $ctrl.authorities | filter:{authority_groupId:group.id}">
       <p>
-        <input id={{authority.name}} type="checkbox" ng-checked="$ctrl.isSelected(authority.name)" ng-click="$ctrl.updateSelection($event, authority.name)">
+        <input id={{authority.name}} type="checkbox" ng-checked="$ctrl.isSelected(group.id, authority.code)" ng-click="$ctrl.updateSelection($event, group.id, authority.code)">
         &nbsp;&nbsp;<strong>#</strong>{{authority.id}}
         &nbsp;&nbsp;<strong>#</strong>{{authority.subId}}
-        &nbsp;&nbsp;<strong>Code:</strong>&nbsp;{{authority.code}}
+        &nbsp;&nbsp;<strong>Code:</strong>&nbsp;0x{{authority.code.toString(16)}}
         &nbsp;&nbsp;<strong>Name:</strong>&nbsp;{{authority.name}}
         &nbsp;&nbsp;<span><small>【{{authority.description}}】</small></span>
       </p>

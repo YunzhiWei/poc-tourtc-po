@@ -19,33 +19,25 @@ function AuthorityListController() {
   var $ctrl = this;
 
   $ctrl.rolename = "客服";
-  $ctrl.selected = ['周边短线','国内长线'];
+  $ctrl.tempcode = [0, 1, 7];
 
-  $ctrl.isSelected = function (name) {
-    return $ctrl.selected.indexOf(name) >= 0;
+  $ctrl.isSelected = function (groupid, code) {
+    console.log("tempcode: ", $ctrl.tempcode, "code: ", code);
+    return $ctrl.tempcode[groupid] & code;
   }
 
-  $ctrl.updateSelection = function($event, name) {
+  $ctrl.updateSelection = function($event, groupid, code) {
     var checkbox = $event.target;
     if (checkbox.checked) {
-      console.log("checked: ", name);
-
-      if($ctrl.selected.indexOf(name) == -1) {
-        $ctrl.selected.push(name);
-      }
+      console.log("checked: ", groupid, code);
+      $ctrl.tempcode[groupid] |= code;
     }
     else {
-      console.log("unchecked: ", name);
-
-      var idx = $ctrl.selected.indexOf(name);
-
-      if(idx >= 0) {
-        $ctrl.selected.splice(idx, 1);
-      }
+      console.log("unchecked: ", groupid, code);
+      $ctrl.tempcode[groupid] &= (~code);
     }
 
-    console.log($ctrl.selected);
-
+    console.log($ctrl.tempcode);
   };
 
   $ctrl.onClickAddGroup = function() {
