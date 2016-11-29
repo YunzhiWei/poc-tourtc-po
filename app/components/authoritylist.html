@@ -1,22 +1,25 @@
 <div class="h2">
   {{$ctrl.title}}
-  <span class="h4"><button ng-click="$ctrl.onClickAddGroup(group.id)">增加权限分组</button></span>
+</div>
+<div ng-if="!$ctrl.rolecode">
+  <strong>Name:&nbsp;</strong><input type="text" name="groupname">
+  <button ng-click="$ctrl.onClickAddGroup(group.id)">增加权限分组</button>
 </div>
 
 <div ng-repeat="group in $ctrl.groups">
   <div class="h3">
     #&nbsp;&nbsp;{{group.id}}&nbsp;&nbsp;{{group.name}}
     &nbsp;&nbsp;<span><small>【{{group.description}}】</small></span>
-    <span class="h4"><button ng-click="$ctrl.onClickAddAuthority(group.id)">增加权限类型</button></span>
   </div>
-  <div>
-    <strong>Name:&nbsp;</strong><input type="text" name="firstname">
+  <div ng-if="!$ctrl.rolecode">
+    <strong>Name:&nbsp;</strong><input type="text" name="group.name">
+    <button ng-click="$ctrl.onClickAddAuthority(group.id)">增加权限类型</button>
   </div>
   <p style="padding:10px;"></p>
   <ul>
     <li ng-repeat="authority in $ctrl.authorities | filter:{authority_groupId:group.id}">
       <p>
-        <input id={{authority.name}} type="checkbox" ng-checked="$ctrl.isSelected(group.id, authority.code)" ng-click="$ctrl.updateSelection($event, group.id, authority.code)">
+        <input ng-if="$ctrl.rolecode" id={{authority.name}} type="checkbox" ng-checked="$ctrl.isSelected(group.id, authority.code)" ng-click="$ctrl.updateSelection($event, group.id, authority.code)">
         &nbsp;&nbsp;<strong>#</strong>{{authority.id}}
         &nbsp;&nbsp;<strong>#</strong>{{authority.subId}}
         &nbsp;&nbsp;<strong>Code:</strong>&nbsp;0x{{authority.code.toString(16)}}

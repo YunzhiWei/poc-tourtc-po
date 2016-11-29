@@ -1,9 +1,9 @@
 <div class="h1">
   {{$ctrl.title}}
-  <span class="h4"><button ng-click="$ctrl.onClickCreateNewRole(group.id)">创建新角色</button></span>
 </div>
 <div>
   <strong>Name:&nbsp;</strong><input type="text" name="firstname">
+  <button ng-click="$ctrl.onClickCreateNewRole(group.id)">创建新角色</button>
 </div>
 <p style="padding:10px;"></p>
 <ul>
@@ -14,8 +14,7 @@
       <button>删除</button>
     </span>
     &nbsp;&nbsp;<strong>#</strong>{{role.id}}
-    &nbsp;&nbsp;<strong>BC:&nbsp;</strong>{{role.businessCategory}}
-    &nbsp;&nbsp;<strong>DT:&nbsp;</strong>{{role.dataType}}
+    &nbsp;&nbsp;<strong>Code:&nbsp;</strong>{{role.code}}
     &nbsp;&nbsp;<strong>Name:&nbsp;</strong>{{role.name}}
     &nbsp;&nbsp;<span class="text-primary"><small>【{{role.description}}】</small></span>
   </li>
