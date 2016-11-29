@@ -6,6 +6,8 @@
   <button ng-click="$ctrl.onClickAddGroup(group.id)">增加权限分组</button>
 </div>
 
+<button ng-click="$ctrl.onClickSaveChange()"  ng-show="$ctrl.isCodeChanged">保存修改</button>
+
 <div ng-repeat="group in $ctrl.groups">
   <div class="h3">
     #&nbsp;&nbsp;{{group.id}}&nbsp;&nbsp;{{group.name}}
@@ -19,7 +21,9 @@
   <ul>
     <li ng-repeat="authority in $ctrl.authorities | filter:{authority_groupId:group.id}">
       <p>
-        <input ng-if="$ctrl.rolecode" id={{authority.name}} type="checkbox" ng-checked="$ctrl.isSelected(group.id, authority.code)" ng-click="$ctrl.updateSelection($event, group.id, authority.code)">
+        <input ng-if="$ctrl.rolecode" id={{authority.name}} type="checkbox"
+          ng-checked="$ctrl.isSelected(group.id, authority.code)"
+          ng-click="$ctrl.updateSelection($event, group.id, authority.code)">
         &nbsp;&nbsp;<strong>#</strong>{{authority.id}}
         &nbsp;&nbsp;<strong>#</strong>{{authority.subId}}
         &nbsp;&nbsp;<strong>Code:</strong>&nbsp;0x{{authority.code.toString(16)}}
