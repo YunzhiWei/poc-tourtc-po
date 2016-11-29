@@ -6,7 +6,8 @@ angular.module('week3App')
     controller: RoleListController,
     bindings: {
       userroles: '<',
-      title: '@'
+      title: '@',
+      onShowDetails: '&'
     }
 })
 ;
@@ -18,4 +19,10 @@ function RoleListController() {
   $ctrl.onClickCreateNewRole = function () {
     console.log("onClickCreateNewRole");
   };
+
+  $ctrl.onClickDetails = function (id) {
+    console.log("onClickDetails", id);
+    $ctrl.onShowDetails({index:id});
+  };
+
 }

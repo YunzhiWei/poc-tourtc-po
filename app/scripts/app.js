@@ -51,6 +51,12 @@ angular.module('week3App', ['ui.router', 'ngResource'])
                   resolve: {
                     roles: ['authorityService', function (authorityService) {
                       return authorityService.restUserRoles().query().$promise;
+                    }],
+                    groups: ['authorityService', function (authorityService) {
+                      return authorityService.restAuthorityGroups().query().$promise;
+                    }],
+                    authorities: ['authorityService', function (authorityService) {
+                      return authorityService.restAuthorities().query().$promise;
                     }]
                   }
                 }

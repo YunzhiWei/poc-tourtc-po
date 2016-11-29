@@ -9,6 +9,7 @@ angular.module('week3App')
     bindings: {
       groups: '<',
       authorities: '<',
+      rolecode: '<',
       title: '@'
     }
 })
@@ -18,26 +19,23 @@ AuthorityListController.$inject = [];
 function AuthorityListController() {
   var $ctrl = this;
 
-  $ctrl.rolename = "客服";
-  $ctrl.tempcode = [0, 1, 7];
-
   $ctrl.isSelected = function (groupid, code) {
-    console.log("tempcode: ", $ctrl.tempcode, "code: ", code);
-    return $ctrl.tempcode[groupid] & code;
+    console.log("rolecode: ", $ctrl.rolecode, "code: ", code);
+    return $ctrl.rolecode[groupid] & code;
   }
 
   $ctrl.updateSelection = function($event, groupid, code) {
     var checkbox = $event.target;
     if (checkbox.checked) {
       console.log("checked: ", groupid, code);
-      $ctrl.tempcode[groupid] |= code;
+      $ctrl.rolecode[groupid] |= code;
     }
     else {
       console.log("unchecked: ", groupid, code);
-      $ctrl.tempcode[groupid] &= (~code);
+      $ctrl.rolecode[groupid] &= (~code);
     }
 
-    console.log($ctrl.tempcode);
+    console.log($ctrl.rolecode);
   };
 
   $ctrl.onClickAddGroup = function() {

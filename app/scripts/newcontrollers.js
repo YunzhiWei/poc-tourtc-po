@@ -10,9 +10,20 @@ angular.module('week3App')
 
   }])
 
-  .controller('RoleController', ['$scope', 'roles', function($scope, roles) {
+  .controller('RoleController', ['$scope', 'roles', 'groups', 'authorities', function($scope, roles, groups, authorities) {
 
     $scope.userrolelist = roles;
+    $scope.grouplist = groups;
+    $scope.authoritylist = authorities;
+
+    $scope.showDetails = function (id) {
+      console.log("RoleController::showDetails", id);
+      console.log("Role: ", $scope.userrolelist[id]);
+
+      $scope.roleid = $scope.userrolelist[id].id;
+      $scope.rolename = $scope.userrolelist[id].name;
+      $scope.rolecode = $scope.userrolelist[id].code;
+    };
 
   }])
 

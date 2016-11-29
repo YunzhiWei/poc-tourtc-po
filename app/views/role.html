@@ -4,12 +4,19 @@
 
   <role-list
     title="角色列表"
-    userroles="userrolelist">
+    userroles="userrolelist"
+    on-show-details="showDetails(index)">
   </role-list>
 
   <p style="padding:10px;"></p>
 
-  <authority-list ng-if="showDetails", title="权限配置"></authority-list>
+  <authority-list
+    ng-if="roleid"
+    title="权限配置({{rolename}})"
+    rolecode="rolecode"
+    groups="grouplist"
+    authorities="authoritylist">
+  </authority-list>
 
   <p style="padding:20px;"></p>
 

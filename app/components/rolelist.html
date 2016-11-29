@@ -9,7 +9,7 @@
 <ul>
   <li ng-repeat="role in $ctrl.userroles">
     <span class="h6">
-      <button>详情</button>
+      <button ng-click="$ctrl.onClickDetails($index)">详情</button>
       <button>编辑</button>
       <button>删除</button>
     </span>
