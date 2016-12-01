@@ -13,7 +13,7 @@ angular.module('week3App')
   };
 
   this.restUserRoles = function() {
-    return $resource(baseURL+"user_roles/:id", null, {'update':{method:'PUT'}});
+    return $resource(baseURL+"user_roles/:id", {id: '@id'}, {'update':{method:'PUT'}});
   };
 
 }])
