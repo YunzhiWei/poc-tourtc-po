@@ -11,9 +11,9 @@
   <p style="padding:10px;"></p>
 
   <authority-list
-    ng-if="roleid"
-    title="权限配置({{rolename}})"
-    rolecode="rolecode"
+    ng-if="role"
+    title="权限配置({{role.name}})"
+    role = "role"
     groups="grouplist"
     authorities="authoritylist">
   </authority-list>

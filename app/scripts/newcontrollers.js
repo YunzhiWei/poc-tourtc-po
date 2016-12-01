@@ -20,9 +20,8 @@ angular.module('week3App')
       console.log("RoleController::showDetails", id);
       console.log("Role: ", $scope.userrolelist[id]);
 
-      $scope.roleid = $scope.userrolelist[id].id;
-      $scope.rolename = $scope.userrolelist[id].name;
-      $scope.rolecode = $scope.userrolelist[id].code;
+      $scope.role = {};
+      $scope.role = $scope.userrolelist[id];
     };
 
   }])

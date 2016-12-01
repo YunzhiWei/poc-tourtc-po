@@ -9,7 +9,7 @@ angular.module('week3App')
     bindings: {
       groups: '<',
       authorities: '<',
-      rolecode: '<',
+      role: '<',
       title: '@'
     }
 })
@@ -20,37 +20,40 @@ function AuthorityListController(authorityService) {
   var $ctrl = this;
 
   $ctrl.$onInit = function () {
-    if ($ctrl.rolecode) $ctrl.originalcode = $ctrl.rolecode.slice();
+    if ($ctrl.role) {
+      console.log("$onInit - role: ", $ctrl.role);
+      resetOriginalCode();
+    }
+  }
+
+  function resetOriginalCode() {
+    $ctrl.originalcode = $ctrl.role.code.slice();
+    $ctrl.isCodeChanged = isCodeChanged();
   }
 
   function isCodeChanged() {
     var len = $ctrl.originalcode.length;
 
-    console.log("isCodeChanged(): ", $ctrl.originalcode, $ctrl.rolecode);
+    console.log("isCodeChanged(): ", $ctrl.originalcode, $ctrl.role.code);
 
     for (var i = 0; i < len; i++) {
-      if ($ctrl.originalcode[i] != $ctrl.rolecode[i]) return true;
+      if ($ctrl.originalcode[i] != $ctrl.role.code[i]) return true;
     }
     return false;
   }
 
   $ctrl.isSelected = function (groupid, code) {
-    // console.log("rolecode: ", $ctrl.rolecode, "code: ", code);
-    return $ctrl.rolecode[groupid] & code;
+    return $ctrl.role.code[groupid] & code;
   }
 
-  $ctrl.updateSelection = function($event, groupid, code) {
+  $ctrl.onUpdateSelection = function($event, groupid, code) {
     var checkbox = $event.target;
     if (checkbox.checked) {
-      // console.log("checked: ", groupid, code);
-      $ctrl.rolecode[groupid] |= code;
+      $ctrl.role.code[groupid] |= code;
     }
     else {
-      // console.log("unchecked: ", groupid, code);
-      $ctrl.rolecode[groupid] &= (~code);
+      $ctrl.role.code[groupid] &= (~code);
     }
-
-    // console.log($ctrl.rolecode);
 
     $ctrl.isCodeChanged = isCodeChanged();
 
@@ -92,8 +95,16 @@ function AuthorityListController(authorityService) {
     console.log("onClickAddAuthority: ", id, name);
   };
 
-  $ctrl.onClickSaveChange = function(id) {
-    console.log("onClickSaveChange: ", id);
+  $ctrl.onClickSaveChange = function() {
+    console.log("onClickSaveChange: ", $ctrl.role, $ctrl.isCodeChanged);
+
+    authorityService.restUserRoles().update(
+      $ctrl.role,
+      function() {
+        alert("Role setting updated!");
+        resetOriginalCode();
+      }
+    );
   };
 
   $ctrl.onClickCancelChange = function (id) {
@@ -102,10 +113,6 @@ function AuthorityListController(authorityService) {
 
   $ctrl.onClickCreateNewRole = function () {
     console.log("onClickCreateNewRole");
-  };
-
-  $ctrl.onClickSaveChange = function () {
-    console.log("onClickSaveChange");
   };
 
 }
