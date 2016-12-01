@@ -15,9 +15,17 @@ angular.module('week3App')
 })
 ;
 
-AuthorityListController.$inject = ['authorityService'];
-function AuthorityListController(authorityService) {
+AuthorityListController.$inject = ['$scope', 'authorityService'];
+function AuthorityListController($scope, authorityService) {
   var $ctrl = this;
+
+  $scope.$watch('$ctrl.role', function (newvalue, oldvalue) {
+    console.log("Digest watcher!", newvalue, oldvalue);
+
+    if(newvalue.id != oldvalue.id) {
+      resetOriginalCode();
+    }
+  });
 
   $ctrl.$onInit = function () {
     if ($ctrl.role) {
