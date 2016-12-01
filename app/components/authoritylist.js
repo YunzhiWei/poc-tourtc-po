@@ -15,12 +15,12 @@ angular.module('week3App')
 })
 ;
 
-AuthorityListController.$inject = [];
-function AuthorityListController() {
+AuthorityListController.$inject = ['authorityService'];
+function AuthorityListController(authorityService) {
   var $ctrl = this;
 
   $ctrl.$onInit = function () {
-    $ctrl.originalcode = $ctrl.rolecode.slice();
+    if ($ctrl.rolecode) $ctrl.originalcode = $ctrl.rolecode.slice();
   }
 
   function isCodeChanged() {
@@ -57,12 +57,39 @@ function AuthorityListController() {
     console.log("isCodeChanged: ", $ctrl.isCodeChanged);
   };
 
-  $ctrl.onClickAddGroup = function() {
-    console.log("onClickAddGroup");
+  $ctrl.onClickAddGroup = function(name, description) {
+    console.log("onClickAddGroup", name);
+
+    authorityService.restAuthorityGroups().save(
+      {
+        "name": name,
+        "description": description
+      },
+      function() {
+        alert("New group added!");
+        $ctrl.groups.splice(0, $ctrl.groups.length);
+        $ctrl.groups = authorityService.restAuthorityGroups().query();
+      }
+    );
   };
 
-  $ctrl.onClickAddAuthority = function(id) {
-    console.log("onClickAddAuthority: ", id);
+  $ctrl.onClickDelGroup = function(id) {
+    console.log("onClickDelGroup", id);
+
+    authorityService.restAuthorityGroups().delete(
+      {
+        "id": id
+      },
+      function() {
+        alert("Group deleted!");
+        $ctrl.groups.splice(0, $ctrl.groups.length);
+        $ctrl.groups = authorityService.restAuthorityGroups().query();
+      }
+    );
+  }
+
+  $ctrl.onClickAddAuthority = function(id, name) {
+    console.log("onClickAddAuthority: ", id, name);
   };
 
   $ctrl.onClickSaveChange = function(id) {

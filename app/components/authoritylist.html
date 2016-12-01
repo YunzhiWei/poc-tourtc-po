@@ -2,8 +2,12 @@
   {{$ctrl.title}}
 </div>
 <div ng-if="!$ctrl.rolecode">
-  <strong>Name:&nbsp;</strong><input type="text" name="groupname">
-  <button ng-click="$ctrl.onClickAddGroup(group.id)">增加权限分组</button>
+  <strong>Name:&nbsp;</strong><input type="text" name="groupname" ng-model="$ctrl.groupname">
+  <strong>Description:&nbsp;</strong><input type="text" name="groupname" ng-model="$ctrl.groupdescription">
+  <button ng-click="$ctrl.onClickAddGroup($ctrl.groupname, $ctrl.groupdescription)">增加权限分组</button>
+  <span>{{$ctrl.groupname}}</span>
+  :
+  <span>{{$ctrl.groupdescription}}</span>
 </div>
 
 <button ng-click="$ctrl.onClickSaveChange()"  ng-show="$ctrl.isCodeChanged">保存修改</button>
@@ -12,10 +16,12 @@
   <div class="h3">
     #&nbsp;&nbsp;{{group.id}}&nbsp;&nbsp;{{group.name}}
     &nbsp;&nbsp;<span><small>【{{group.description}}】</small></span>
+    <button ng-click="$ctrl.onClickDelGroup(group.id)">删除分组</button>
   </div>
   <div ng-if="!$ctrl.rolecode">
-    <strong>Name:&nbsp;</strong><input type="text" name="group.name">
-    <button ng-click="$ctrl.onClickAddAuthority(group.id)">增加权限类型</button>
+    <strong>Name:&nbsp;</strong><input type="text" name="group.name" ng-model="$ctrl.authority[group.id]">
+    <button ng-click="$ctrl.onClickAddAuthority(group.id, $ctrl.authority[group.id])">增加权限类型</button>
+    <span>{{$ctrl.authority[group.id]}}</span>
   </div>
   <p style="padding:10px;"></p>
   <ul>
