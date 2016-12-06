@@ -3,8 +3,6 @@
 
 angular.module('week3App', ['ui.router', 'ngResource'])
 
-.constant("baseURL","http://localhost:3000/")
-
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         // route for the home page

@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('week3App')
-
+.constant("baseURL","http://localhost:3000/")
 .service('authorityService', ['$resource', 'baseURL', function($resource, baseURL) {
   this.restAuthorityGroups = function() {
     return $resource(baseURL+"authority_groups/:id", null, {'update':{method:'PUT'}});
